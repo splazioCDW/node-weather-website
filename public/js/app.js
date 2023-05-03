@@ -1,3 +1,5 @@
+console.log('Client side JavaScript file is loaded!')
+
 //fetch api not accessable in node.js
 //fetch this and then run this method 
 //did not work
