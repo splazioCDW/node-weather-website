@@ -6,6 +6,13 @@
 //    - Low level error, pass string for error
 //    - Coordinate error, pass string for error
 //    - Success, pass forecast string for data (same format as from before)
+
+//Chapter 9 - New Feature deployment workflow
+// Goal: Add new data to forecast //
+// 1. Update the forecast string to include new data // 2. Commit your changes
+// 3. Push your changes to GitHub and deploy to Heroku // 4. Test your work in the live application!
+
+
 const request = require('request')
 
 const forecast = (latitude, longitude, callback) => {
@@ -25,7 +32,10 @@ const forecast = (latitude, longitude, callback) => {
        } else {
             // callback(undefined, response.body.current.weather_descriptions[0] + '. It is currently ' + response.body.current.temperature + ' degrees out. It feels like ' + response.body.current.feelslike + ' degrees out.')
             //destructuring (revove 'response.' before body)
-        callback(undefined, body.current.weather_descriptions[0] + '. It is currently ' + body.current.temperature + ' degrees out. It feels like ' + body.current.feelslike + ' degrees out.')
+            //console.log(body.current)
+        callback(undefined, body.current.weather_descriptions[0] + '. It is currently ' + 
+        body.current.temperature + ' degrees out. It feels like ' + 
+        body.current.feelslike + ' degrees out. The humidity is ' + body.current.humidity + "%.")
 
         }
     })
